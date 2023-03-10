@@ -11,7 +11,7 @@ export default function Navbar() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <NavLink className="navbar-brand" to="/">
+        <NavLink className="navbar-brand" to="/record">
         <img style={{"width" : 50 + '%'}} src="https://rocketelevatorslp.com/assets/images/R2.png"></img>
         </NavLink>
         <button
@@ -31,6 +31,15 @@ export default function Navbar() {
             <li className="nav-item">
               <NavLink className="nav-link" to="/create">
                 Create Employees
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/">
+                Logout
               </NavLink>
             </li>
           </ul>

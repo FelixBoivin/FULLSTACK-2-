@@ -94,4 +94,31 @@ recordRoutes.route("/:id").delete((req, response) => {
   });
 });
 
+recordRoutes.route("/").post(async function (req, res) {
+  let db_connect = dbo.getDb();
+  const { email, password } = req.body;
+  const user = await db_connect.collection("users").findOne({ "email": email });
+  if (!user) {
+  return res.status(400).json({ message: "Invalid email or password" });
+  }
+  if (password !== user.password) {
+  return res.status(400).json({ message: "Invalid email or password" });
+  }
+  res.json(true);
+});
+
+recordRoutes.route("/users/post").post(function (req, response) {
+  let db_connect = dbo.getDb();
+  let myobj = {
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email: req.body.email,
+    password: req.body.password,
+  };
+  db_connect.collection("users").insertOne(myobj, function (err, res) {
+    if (err) throw err;
+    response.json(res);//si la promesse est résolue réponds avec le document ajouter à la db
+  });
+});
+
 module.exports = recordRoutes;
