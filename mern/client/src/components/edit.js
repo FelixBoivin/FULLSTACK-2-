@@ -29,7 +29,7 @@ export default function Edit() {
       const record = await response.json();
       if (!record) {
         window.alert(`Record with id ${id} not found`);
-        navigate("/");
+        navigate("/record");
         return;
       }
 
@@ -68,7 +68,7 @@ export default function Edit() {
         'Content-Type': 'application/json'
       },
     });
-    navigate("/");
+    navigate("/record");
   }
 
 
