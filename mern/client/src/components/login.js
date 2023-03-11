@@ -29,7 +29,7 @@ function Login() {
       body: raw,
       redirect: 'follow'
     };
-    fetch("http://localhost:5000/login", requestOptions)
+    fetch("http://localhost:5000/", requestOptions)
       .then(response => response.text())
       .then(result => {
         // isConnected(result)

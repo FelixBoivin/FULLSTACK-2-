@@ -42,7 +42,7 @@ export default function Create() {
     });
 
     setForm({first_name: "",last_name: "",email: "",region: "",rating: "",fee: "",sales: ""});
-    navigate("/");
+    navigate("/record");
   }
 //Display the form
   // This following section will display the form that takes the input from the user.
